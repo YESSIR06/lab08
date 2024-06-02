@@ -10,7 +10,7 @@ jobs:
         with:
           submodules: recursive
       - name: Install docker
-        run: sudo apt-get install docker.io
+        run: sudo apt install docker.io docker-compose -y
       - name: Run the build process with Docker
         run: docker build -t builder .
       - name: Run image
