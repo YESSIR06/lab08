@@ -39,7 +39,6 @@ jobs:
           cpack -G "TGZ"
           cpack -G "ZIP"
           cpack -G "DEB"
-          cpack -G "NSIS"
           cpack -G "RPM"
       - name: Download a single artifact
         uses: actions/download-artifact@v4
