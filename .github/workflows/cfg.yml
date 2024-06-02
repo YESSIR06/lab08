@@ -19,6 +19,10 @@ jobs:
         run: docker run --name test -t builder ls
       - name: Copy log file
         run: docker cp test:/repo/log.txt ./log.txt
+      - name: Check dir
+        run: |
+         ls -la
+         pwd
       - name: Artifact
         uses: actions/upload-artifact@v4
         with:
