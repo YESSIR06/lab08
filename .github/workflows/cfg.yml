@@ -37,9 +37,31 @@ jobs:
         run: |
           cd _build
           cpack -G "TGZ"
-          cpack -G "ZIP"
           cpack -G "DEB"
           cpack -G "RPM"
+          cd ..
+      - name: Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: _build/banking_app-*
+  make_windows_artifacts:
+    if: startsWith( ${{ github.event.ref }} , '/refs/tags/v')
+    runs-on: windows-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Build Tests
+        run: |
+          cmake -H. -B_build -DBUILD_TESTS=ON -DBUILD_COVERAGE=ON
+          cmake --build _build
+          cmake --build _build --target test -- ARGS=--verbose
+      - name: Make CPack artifacts
+        run: |
+          cd _build
+          cpack -G "ZIP"
+          cpack -G "NSIS"
           cd ..
       - name: Artifacts
         uses: actions/upload-artifact@v4
