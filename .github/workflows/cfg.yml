@@ -43,6 +43,7 @@ jobs:
       - name: Artifacts
         uses: actions/upload-artifact@v4
         with:
+          name: linux_artifacts
           path: _build/banking_app-*
   make_windows_artifacts:
     if: startsWith( ${{ github.event.ref }} , '/refs/tags/v')
@@ -65,6 +66,7 @@ jobs:
       - name: Artifacts
         uses: actions/upload-artifact@v4
         with:
+          name: windows_artifacts
           path: _build/banking_app-*
 
 
