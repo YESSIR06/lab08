@@ -54,7 +54,7 @@ jobs:
           submodules: recursive
       - name: Build Tests
         run: |
-          cmake -H. -B_build -DBUILD_TESTS=ON -DBUILD_COVERAGE=ON
+          cmake -S /. -B /_build -DBUILD_TESTS=ON -DBUILD_COVERAGE=ON
           cmake --build _build
           cmake --build _build --target test -- ARGS=--verbose
       - name: Make CPack artifacts
