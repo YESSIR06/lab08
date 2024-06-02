@@ -20,6 +20,11 @@ jobs:
           excludes: third-party
           coveralls-send: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
+  basic_job:
+    runs-on: ubuntu-latest
+    steps:
+     - name: run
+       run: ls -la
   make_artifacts:
     if: startsWith(github.event.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
