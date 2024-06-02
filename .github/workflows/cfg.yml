@@ -40,9 +40,10 @@ jobs:
           cpack -G "ZIP"
           cpack -G "DEB"
           cpack -G "RPM"
-      - name: Download a single artifact
+      - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
+          path: _build
           pattern: banking*
           merge-multiple: true
 
