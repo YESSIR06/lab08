@@ -40,11 +40,9 @@ jobs:
           cpack -G "ZIP"
           cpack -G "DEB"
           cpack -G "RPM"
-          ls -la 
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          path: _build
           pattern: banking_app-*
           merge-multiple: true
 
