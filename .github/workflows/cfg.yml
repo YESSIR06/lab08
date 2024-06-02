@@ -26,11 +26,16 @@ jobs:
     steps:
       - name: Make CPack artifacts
         run: |
+          cd _build
           cpack -G "TGZ"
           cpack -G "ZIP"
           cpack -G "DEB"
+          cpack -G "NSIS"
           cpack -G "RPM"
-          cpack -G "WIX"
-          cpack -G "DragNDrop"
+      - name: Download a single artifact
+        uses: actions/download-artifact@v4
+        with:
+          pattern: banking*
+          merge-multiple: true
 
 
