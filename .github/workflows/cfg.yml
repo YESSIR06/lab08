@@ -48,17 +48,15 @@ jobs:
     if: startsWith( ${{ github.event.ref }} , '/refs/tags/v')
     runs-on: windows-latest
     steps:
-      - name: test
-        run: ls
-      - name: check
-        run: cd D:\a\lab06; ls
       - name: checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Build Tests
         run: |
-          cmake -S /. -B /_build -DBUILD_TESTS=ON -DBUILD_COVERAGE=ON
+          cd D:/a/lab06; ls
+          cd D:/a/lab06/lab06; ls
+          cmake -S D:/a/lab06 -B _build -DBUILD_TESTS=ON -DBUILD_COVERAGE=ON
           cmake --build _build
           cmake --build _build --target test -- ARGS=--verbose
       - name: Make CPack artifacts
