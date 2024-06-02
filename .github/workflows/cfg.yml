@@ -41,6 +41,8 @@ jobs:
           cpack -G "DEB"
           cpack -G "RPM"
           cd ..
+      - name: struct
+        run: ls -la
       - name: Artifacts
         uses: actions/download-artifact@v4
         with:
