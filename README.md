@@ -4,4 +4,3 @@
 3. Он должен содержать бинарные файлы banking **.deb**, **.rpm**, **.msi**, **.dmg**
 version 0.1.0.0
 
-[![Coverage Status](https://coveralls.io/repos/github/VadimSmD/lab06/badge.svg?branch=master)](https://coveralls.io/github/VadimSmD/lab06?branch=master)
